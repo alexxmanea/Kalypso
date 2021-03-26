@@ -70,8 +70,8 @@ public class Balloon {
 	}
 
 	public String getCurrentLocation() {
-		return Tools.round(getLaunchLat() + 5.5, Tools.COORDINATES_DECIMALS) + ", " +
-				Tools.round(getLaunchLong() + 6.5, Tools.COORDINATES_DECIMALS);
+		return Tools.roundDouble(getLaunchLat() + 5.5, Tools.COORDINATES_DECIMALS) + ", " +
+				Tools.roundDouble(getLaunchLong() + 6.5, Tools.COORDINATES_DECIMALS);
 	}
 
 	public JSONObject getJson() {

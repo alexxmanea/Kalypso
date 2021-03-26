@@ -39,11 +39,11 @@ public class AirStats {
 
 	// ------------------------------------------------ Static methods -----------------------------------------------
 	public static double randomPressure() {
-		return Tools.round(Tools.randomDouble(MIN_PRESSURE, MAX_PRESSURE), 1);
+		return Tools.roundDouble(Tools.randomDouble(MIN_PRESSURE, MAX_PRESSURE), 1);
 	}
 
 	public static double randomTemperature() {
-		return Tools.round(Tools.randomDouble(MIN_TEMPERATURE, MAX_TEMPERATURE), 1);
+		return Tools.roundDouble(Tools.randomDouble(MIN_TEMPERATURE, MAX_TEMPERATURE), 1);
 	}
 
 	// --------------------------------------------------- Methods ---------------------------------------------------
@@ -52,7 +52,7 @@ public class AirStats {
 	}
 
 	private ArrayList<Double> generateRandomsToSum(double targetSum, int numbers, double first) {
-		first = Tools.round(first, 2);
+		first = Tools.roundDouble(first, 2);
 		targetSum -= first;
 		ArrayList<Double> load = new ArrayList<>();
 
@@ -68,17 +68,17 @@ public class AirStats {
 		double scale = targetSum / sum;
 		sum = 0.0;
 		for (int i = 0; i < numbers; ++i) {
-			load.set(i, (Tools.round(load.get(i) * scale, 2)));
+			load.set(i, (Tools.roundDouble(load.get(i) * scale, 2)));
 			sum += load.get(i);
 		}
-		sum = Tools.round(sum, 2);
+		sum = Tools.roundDouble(sum, 2);
 
 		load.add(first);
 		load.sort(Collections.reverseOrder());
 
 		// Take rounding issues into account
 		if (sum != targetSum) {
-			load.set(0, Tools.round(load.get(0) + targetSum - sum, 2));
+			load.set(0, Tools.roundDouble(load.get(0) + targetSum - sum, 2));
 		}
 
 		return load;

@@ -27,7 +27,7 @@ public class Tools {
 		return min + (max - min) * random.nextDouble();
 	}
 
-	public static double round(double value, int places) {
+	public static double roundDouble(double value, int places) {
 		if (places < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -64,8 +64,8 @@ public class Tools {
 		// Adjust the x-coordinate for the shrinking of the east-west distances
 		double new_x = x / Math.cos(y0);
 
-		double foundLongitude = round(new_x + x0, COORDINATES_DECIMALS);
-		double foundLatitude = round(y + y0, COORDINATES_DECIMALS);
+		double foundLongitude = roundDouble(new_x + x0, COORDINATES_DECIMALS);
+		double foundLatitude = roundDouble(y + y0, COORDINATES_DECIMALS);
 
 		return new Pair<>(foundLatitude, foundLongitude);
 	}
@@ -115,13 +115,6 @@ public class Tools {
 //	}
 
 	public static List<JSONObject> createBalloonJSONS() {
-//		Balloon[] balloons = new Balloon[Balloon.BALLOONS_NUMBER];
-//		balloons[0] = new Balloon("HAB001", "0010", "13", "March", "2015", 41.40338D, 2.17403D);
-//		balloons[1] = new Balloon("HAB002", "0010", "7", "July", "2018", 57.23575D, 3.12312D);
-//		balloons[2] = new Balloon("HAB003", "0011", "24", "September", "2019", 23.57465D, 7.56756D);
-//		balloons[3] = new Balloon("HAB004", "0011", "18", "January", "2017", 61.23423D, 2.98798D);
-//		balloons[4] = new Balloon("HAB005", "0100", "9", "November", "2014", 64.42345D, 10.31212D);
-
 		Balloon[] balloons = new Balloon[Balloon.BALLOONS_NUMBER];
 		for (int i = 0; i < Balloon.BALLOONS_NUMBER; ++i) {
 			balloons[i] = new Balloon(i + 1);
