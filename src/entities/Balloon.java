@@ -9,10 +9,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Balloon {
 	public static final int BALLOONS_NUMBER = 5;
+	public static final String NAME_PREFIX = "HAB";
 	private static final int MAX_SPEED = 150;
 	private static final int MAX_WIND_SPEED = 150;
 	private static final int ALTITUDE = 10000;
-	private static final String NAME_PREFIX = "HAB";
 	private String name;
 	private String serialNumber;
 	private String launchDay;
@@ -66,11 +66,11 @@ public class Balloon {
 	}
 
 	public String getLaunchLocation() {
-		return getLaunchLat() + ", " + getLaunchLong();
+		return getLaunchLat() + "," + getLaunchLong();
 	}
 
 	public String getCurrentLocation() {
-		return Tools.roundDouble(getLaunchLat() + 5.5, Tools.COORDINATES_DECIMALS) + ", " +
+		return Tools.roundDouble(getLaunchLat() + 5.5, Tools.COORDINATES_DECIMALS) + "," +
 				Tools.roundDouble(getLaunchLong() + 6.5, Tools.COORDINATES_DECIMALS);
 	}
 
@@ -79,24 +79,24 @@ public class Balloon {
 
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("Name", getName());
-		jsonObject.put("Serial Number", getSerialNumber());
-		jsonObject.put("Launch Date", getLaunchDate());
-		jsonObject.put("Launch Location", getLaunchLocation());
-		jsonObject.put("Current Location", getCurrentLocation());
-		jsonObject.put("Current Speed", generateSpeed());
-		jsonObject.put("Wind Speed", generateWindSpeed());
-		jsonObject.put("Altitude", generateAltitude());
-		jsonObject.put("Air Pressure", AirStats.randomPressure());
-		jsonObject.put("Air Temperature", AirStats.randomTemperature());
-		jsonObject.put("Oxygen", airStats.getOxygen());
-		jsonObject.put("Nitrogen", airStats.getNitrogen());
-		jsonObject.put("Argon", airStats.getArgon());
-		jsonObject.put("Carbon Dioxide", airStats.getCarbonDioxide());
-		jsonObject.put("Neon", airStats.getNeon());
-		jsonObject.put("Helium", airStats.getHelium());
-		jsonObject.put("Methan", airStats.getMethan());
-		jsonObject.put("Krypton", airStats.getKrypton());
-		jsonObject.put("Others", airStats.getOthers());
+		jsonObject.put("serialNumber", getSerialNumber());
+		jsonObject.put("launchDate", getLaunchDate());
+		jsonObject.put("launchLocation", getLaunchLocation());
+		jsonObject.put("currentLocation", getCurrentLocation());
+		jsonObject.put("currentSpeed", generateSpeed());
+		jsonObject.put("windSpeed", generateWindSpeed());
+		jsonObject.put("altitude", generateAltitude());
+		jsonObject.put("airPressure", AirStats.randomPressure());
+		jsonObject.put("airTemperature", AirStats.randomTemperature());
+		jsonObject.put("oxygen", airStats.getOxygen());
+		jsonObject.put("nitrogen", airStats.getNitrogen());
+		jsonObject.put("argon", airStats.getArgon());
+		jsonObject.put("carbonDioxide", airStats.getCarbonDioxide());
+		jsonObject.put("neon", airStats.getNeon());
+		jsonObject.put("helium", airStats.getHelium());
+		jsonObject.put("methan", airStats.getMethan());
+		jsonObject.put("krypton", airStats.getKrypton());
+		jsonObject.put("others", airStats.getOthers());
 
 		return jsonObject;
 	}
